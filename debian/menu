@@ -1,0 +1,2 @@
+?package(wmmount): needs=X11 title="wmmount" section="Apps/Misc" \
+  command="/usr/bin/X11/wmmount -- -w -s"

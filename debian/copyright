@@ -1,10 +1,14 @@
-This package was debianized by Marcelo E. Magallon
-<mmagallo@debian.org> on Sun,  25 Jan 1998 11:00:00 -0600
+This package was debianized by Marcelo E. Magallon <mmagallo@debian.org>
+on Sun, 25 Jan 1998 11:00:00 -0600. Current maintainer is Josip Rodin
+<jrodin@jagor.srce.hr>.
 
-It was downloaded from
+Original source can be found at:
+	http://www.geocities.com/SiliconValley/Vista/2471/window_maker.html
 
-	http://www.geocities.com/SiliconValley/Vista/2471/linux.htm
+wmmount is written by Sam Hawker <shawkie@ultraviolet.org>. It is
+distributed under the terms of the GNU General Public License. You
+can find the full text it in /usr/share/common-licenses/GPL file.
 
-wmmout is written by Sam Hawker, shawkie@ultraviolet.org. This is
-distributed under the terms of the GPL. You can find a copy of the GPL
-on /usr/doc/copyright/GPL.
+update-wmmountrc (and its manpage) was written by Marcelo Magallon
+<mmagallo@debian.org> based on a similar program distributed with
+wmmount. GNU Copyright 1998 Marcelo Magallon <mmagallo@debian.org>.

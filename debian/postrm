@@ -1,0 +1,11 @@
+#!/bin/sh -e
+
+system_wmmount=/etc/system.wmmount
+
+if [ "$1" = "remove" -o "$1" = "purge" ]; then
+#DEBHELPER#
+fi
+
+if [ "$1" = "purge" ]; then
+  rm -f ${system_wmmount}
+fi

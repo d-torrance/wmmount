@@ -1,56 +1,49 @@
-.\"             -*-Nroff-*-
-.\"
-.TH wmmount 1x "Sep 1998" "Debian Project" "Debian GNU/Linux"
+.\" -*- nroff-*-
+.TH WMMOUNT 1x "October 1999" "Debian Project" "wmmount"
 .SH NAME
 wmmount \- the WindowMaker universal mount point
 .SH SYNOPSIS
 .B wmmount
-.RB [\| \-h \||\| \-help \||\| \-\-help \|]
-.RB [\| \-s \|]
-.RB [\| \-w \|]
-.RB [\| \-a \|]
-.RB [\| \-display
-.RI \| display \|]
-.RB [\| \-position
-.RI \| position \|]
-.RB [\| \-b
-.RI \| "back color" \|]
+[ -- [-h|-help|--help] [-s] [-w] [-a] [-display <display>]
+[-position <position>] [-b <color>] ]
 .SH DESCRIPTION
-\fBwmmount\fP mounts and umounts filesystems using a simple interface
-on a 64x64 miniwindow and a configuration file. It can also launch
-commands on the mount points, for example Midnight Commander,
-\fBmc\fP(1)
+.B wmmount
+mounts and umounts filesystems using a simple interface on a 64x64
+miniwindow and a configuration file. It can also launch commands
+on the mount points, for example Midnight Commander, \fBmc\fP(1).
 .PP
 .B wmmount 
 is configured using a configuration file, ~/.wmmount (or
 /etc/system.wmmountrc). Its format is documented on the
-"\fIConfiguration\fP" section.
+"\fIConfiguration\fP" section below.
 .PP
 To mount a file system, click the left most button on the bottom
 strip. To move between mounts, click the right arrow button (goes
 "forward") and left arrow button (goes "back"). To launch the
 configured command, click the icon you defined.
 .SS OPTIONS
+You need to put "--" in front of every argument that relates to dockapp
+settings.
 .TP
-.B \-h \-help \-\-help
+.B \-h, \-help, \-\-help
 displays a brief help message
 .TP
 .B \-s
 start up without groundplate
 .TP
 .B \-w
-start up withdrawn (for WindowMaker)
+start up withdrawn (for Window Maker)
 .TP
 .B \-a
 use an smaller window (for AfterStep's Wharf)
 .TP
-.B \-display
+.B \-display <display>
 selects target display
 .TP
-.B \-position
+.B \-position <position>
 specifies the start up position in +x+y format
 .TP
-.B \-b
+.B \-b <color>
 specifies the back color
 .SH CONFIGURATION
 The configuration file has a semi rigid format, and is case
@@ -60,30 +53,30 @@ the behaviour and appearance of \fBwmmount\fP, namely:
 .TP
 .B mountcmd=<command>
 specifies the command used to mount a file system. If ommited \fImount
-%s &\fP will be used.
+%m &\fP will be used.
 .TP
 .B umountcmd=<command>
 specifies the command used to unmount a file system. If ommited
-\fIumount %s &\fP will be used.
+\fIumount %m &\fP will be used.
 .TP
 .B opencmd=<command>
 specifies the command to run when the mount icon is clicked. If
-ommited \fIxterm -e mc %s\fP will be used.
+ommited \fIxterm -e mc %m\fP will be used.
 .TP
-.B textcolor=<color>
-specifies the color used for the mount name text .If ommited, black is
+.B namecolor=<color>
+specifies the color used for the mount name text. If ommited, black is
 used.
 .TP
-.B textfont=<font>
+.B namefont=<font>
 specifies the font used for the mount name text. This is an X Font
 specification. See xlsfonts(1x). If ommited, helvetica, bold, 11 pt is
 used.
 .TP
-.B capcolor=<color>
+.B usagecolor=<color>
 specifies the color used for the capacity readout. If ommited, gray90
 is used.
 .TP
-.B capfont=<font>
+.B usagefont=<font>
 specifies the font used for the capacity readout. This is an X Font
 specification. See xlsfonts(1x). If ommited, helvetica, medium,
 oblique, 11 pt is used.
@@ -91,7 +84,7 @@ oblique, 11 pt is used.
 .B ledcolor=<color>
 specifies the color used for the led. If ommited, green is used.
 .PP
-As you may have guessed by now, \fI%s\fP on the commands, is
+As you may have guessed by now, \fI%m\fP on the commands, is
 substituted with the corresponding \fBmount point\fP. Icons are
 specified like this:
 .TP
@@ -102,20 +95,20 @@ icons. The details of the mountpoint(s) are specified like this
 (ordering and indentation \fIis\fP important, there are \fIno\fP blank
 lines between keys):
 .PP
-\fBmountname \fP<\fImountname\fP>
+\fBmountpoint \fP<\fImountpoint\fP>
 .br
-\~\~\~\fBmountpoint \fP<\fImountpoint\fP>
+\fBname=\fP<\fIname\fP>
 .br
-\~\~\~\fBiconnumber \fP<\fInumber\fP>
+\fBiconnumber=\fP<\fInumber\fP>
 .br
-\~\~\~\fBusagedisplay \fP<\fIFree\fP|\fIUsed\fP|\fI%Capacity\fP|\fINone\fP>
-.TP
-.I mountname
-is the name displayed on for that particular mount.
+\fBusagedisplay=\fP<\fI0\fP|\fI1\fP|\fI2\fP|\fI3\fP>
 .TP
 .I mountpoint
-is the actual mountpoint. This value is substituted wherever %s
+is the actual mountpoint. This value is substituted wherever %m
 appears on the commands described above.
+.TP
+.I name
+is the name displayed on for that particular mount.
 .TP
 .I number
 is the icon number used. The first icon is number 0, and the same icon
@@ -123,37 +116,44 @@ can be used multiple times.
 .TP
 .I usagedisplay
 this key specifies that kind of capacity information will be
-displayed. Free and Used display the correspoding quantities in bytes
-(kB, MB or GB), while %Capacity shows the free percentaje. None
-displays nothing.
+displayed. Value of usagedisplay can be 0 (none), 1 (available), 2 (used)
+or 3 (percentage used). The quantities, with values 1 or 2, are in bytes
+(kB, MB or GB).
 .SH FILES
 .TP
 .I ~/.wmmount
-configuration file.
+user configuration file.
 .TP
 .I /etc/system.wmmount
-configuration file.
+system-wide configuration file.
 .TP
-.I /etc/fstab(5)
+.I /etc/fstab
 static information about the filesystems.
 .TP
 .I /usr/share/wmmount
-on Debian systems, contains several icons that can be used with wmmount.
+directory which contains several icons that can be used with wmmount.
 .PP
 A maximum of 20 mountnames can be specified.
 .SH BUGS
 Does not read symlinks properly when testing for mounted filesystems.
 So, if it incorrectly reports devices as mounted, make sure the mountpoint
 specified in the config file does not include symlinks.
-.SH AUTHORS
-\fBwmmount\fP was written by \fISam Hawker <shakie@geocities.com>\fP.
-
-This manpange was written by \fIMarcelo Magallon
-<mmagallo@debian.org>\fP for the \fIDebian Project\fP, and is GNU
-Copyright 1998 Marcelo Magallon.
+.sp
+Version 1.0-beta1 of wmmount had different configuration file syntax
+and different way of argument handling. You may experience segfaults
+if trying to use old style configuration files with newer versions
+(>= 1.0-beta2). You can use the gen-wmmountrc script to generate a
+new wmmount config file from your /etc/fstab file contents.
 .SH "SEE ALSO"
 .BR df (1),
 .BR mount (1),
 .BR fstab (5),
-.BR nfs (5)
-.BR wmaker (1x)
+.BR nfs (5),
+.BR gen-wmmountrc (1), 
+.BR wmaker (1x).
+.SH AUTHORS
+.B wmmount
+was written by Sam Hawker <shakie@geocities.com>.
+.sp
+This manual page was written by Marcelo Magallon <mmagallo@debian.org>,
+and is GNU Copyright 1998 Marcelo Magallon. Later updated by Josip Rodin.

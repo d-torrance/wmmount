@@ -1,3 +1,34 @@
+wmmount (1.0beta2-2) unstable; urgency=low
+
+  * s/generate-wmmountrc/gen-wmmountrc/ in postinst. Closes: #51410.
+  * Compiled with libstdc++2.10. Closes: #46968.
+  * Standards-Version: 3.1.1. Added Build-Depends:.
+
+ -- Josip Rodin <jrodin@jagor.srce.hr>  Sun, 28 Nov 1999 17:14:30 +0100
+
+wmmount (1.0beta2-1) unstable; urgency=low
+
+  * New upstream version. The config file syntax and command line
+    arguments handling changed a lot, will produce errors and segfaults.
+    So, a big fat warning is now in the postinst.
+  * Included upstream config/system.wmmount.sh script in examples dir,
+    and modified it to match file locations on Debian.
+  * Updated update-wmmountrc to make it generate a new style .wmmount
+    file. Renamed it to 'gen-wmmountrc', because it doesn't update any
+    existing data, it just gen-erates new data, from /etc/fstab.
+  * Updated upstream URL and wmmount.1x manual page. Moved the manpage
+    from debian/wmmount.1x to wmmount.man, to be included in Makefile
+    by default, and called 'install.man' rule, too.
+
+ -- Josip Rodin <jrodin@jagor.srce.hr>  Sun, 17 Oct 1999 23:30:33 +0200
+
+wmmount (1.0beta1-2) unstable; urgency=low
+
+  * New maintainer.
+  * Mostly redid the packaging, updated for Policy 3.x.
+
+ -- Josip Rodin <jrodin@jagor.srce.hr>  Mon, 27 Sep 1999 17:59:09 +0200
+
 wmmount (1.0beta1-1) unstable; urgency=low
 
   * New upstream version

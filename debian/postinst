@@ -1,0 +1,35 @@
+#!/bin/sh -e
+
+system_wmmount=/etc/system.wmmount
+
+if [ "$1" = "configure" ]; then
+  [ -e ${system_wmmount} ] || gen-wmmountrc > ${system_wmmount}
+  if [ "$2" ] && echo $2 | grep unoff > /dev/null 2>&1 ; then
+    # give a non obstrusive notice about the name change, again...
+    cat<<'EOF'
+
+This is the offical wmmount. It uses ~/.wmmount and /etc/system.wmmount
+instead of ~/.wmmountrc and /etc/wmmountrc for its configuration files.
+You will find a new /etc/system.wmmount in place.
+EOF
+  fi
+
+  if [ "$2" ]; then
+    if `dpkg --compare-versions $2 lt 1.0beta2-1`; then
+      cat <<%END%
+
+Beware upgraders! Syntax of the configuration file has changed in
+a way that you may experience segmentation faults and other
+inconveniences if running this new wmmount version with old format
+configuration files.
+
+Read wmmount(1x) manual page, /usr/share/doc/wmmount/README.Debian
+file, and use the provided 'gen-wmmountrc' utility to convert
+your /etc/fstab to a wmmount configuration file.
+
+%END%
+    fi
+  fi
+fi
+
+#DEBHELPER#

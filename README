@@ -1,6 +1,7 @@
-wmmount - The WindowMaker universal mount point
-05/09/98  Release 1.0 Beta1
-Copyright (C) 1998  Sam Hawker <shawkie@geocities.com>
+wmmount - The Window Maker universal mount point
+
+17/06/99  Release 1.0 beta2
+Copyright (C) 1999  Sam Hawker <shawkie@geocities.com>
 This software comes with ABSOLUTELY NO WARRANTY
 This software is free software, and you are welcome to redistribute it
 under certain conditions
@@ -24,10 +25,8 @@ See the COPYING file for details.
 THE AUTHOR:
 ===========
 
-Sam Hawker (17/m/uk)
-
-shawkie@geocities.com
-http://www.geocities.com/SiliconValley/Vista/2471/
+Sam Hawker <shawkie@geocities.com>
+http://www.geocities.com/SiliconValley/Vista/2471/index.html
 
 
 INSTALLING:
@@ -39,157 +38,85 @@ strip wmmount
 make install
 
 mkdir /usr/X11R6/lib/X11/wmmount
-cp EXTRAS/* /usr/X11R6/lib/X11/wmmount/
+cp lib/* /usr/X11R6/lib/X11/wmmount
+
+
+DOCKAPP:
+========
+
+Dock applet functions for wmmount are now provided by the dockapp source
+module. For information relating to these functions (eg. docking under Window
+Maker) see the DOCKAPP file.
 
 
 CONFIGURATION:
 ==============
 
-The system-wide configuration file can now be generated automagically,
-from /etc/fstab, by means of the system.wmmount.awk awk (or gawk) program.
+The system-wide configuration file can now be generated automatically from
+/etc/fstab by means of the system.wmmount.sh script. It requires awk (or gawk)
+and can be found in the config directory.
 
-awk -f system.wmmount.awk /etc/fstab >system.wmmount
-cp system.wmmount /usr/X11R6/lib/X11/wmmount/
+./system.wmmount.sh >system.wmmount
+cp system.wmmount /usr/X11R6/lib/X11/wmmount
 
-In addition, individual users can create their own configuration files,
-saving them as ~/.wmmount
+Individual users can create their own configuration files, saving them as
+~/.wmmount.
 
 
 NOTE:
 =====
 
-I do not recommend giving wmmount suid or sgid permissions.
-In fact, I strongly recommend not giving it such permissions.
+Do not give wmmount suid or sgid permissions.
+
+Proper use of fstab is all that is required (at least on Linux).
 
 
 USAGE:
 ======
 
 Press the "<" and ">" arrow buttons to select a mount point.
+
 Press the mount button (the one with a bolt symbol) to mount or unmount.
-Double-click on the information box to open a program at the mount point
-(Midnight Commander for example).
 
-What else can i say? Enjoy!
-
-
-AFTERSTEP USERS:
-================
-(thanks to tygris@erols.com)
-
-This release includes in a new command line option.
-The effect this has is to enable shape support (it implies "-s"), and
-to reduce the size of the window to 56x56 pixels.
-The "-position position" option has also been added, so you can push
-wmcdplay off the edge of the screen while it gets swallowed.
-To put wmmount in your Wharf, add the following line in the appropriate
-part of your .steprc
-
-*Wharf wmmount nil MaxSwallow "wmmount" wmmount -a -position -0-0 &
-
-It is also possible (by editing and recompiling the afterstep sources),
-to make Wharf handle the new 56x56 pixel window properly - yes, I add
-an option to use a 56x56 pixel window, even though the AfterStep Wharf
-really wants 55x57 pixel ones.
-
-I am told (by tygris@erols.com):
-
-"Locate Wharf.c (or is it Wharf.cc?)  Should be in
-AfterStep-1.0/modules/Wharf.  Locate this:
-
-            if (Buttons[button].maxsize) {
-              Buttons[button].icons[0].w = 55;
-              Buttons[button].icons[0].h = 57;
-            }
-
-and change the 55 and 57 to 56's.  Save and compile."
+Double-click in the information box to open a program (eg. Midnight Commander)
+at the mount point.
 
 
-BUILD PROBLEMS:
-===============
+THANKS:
+=======
 
-You may have trouble linking wmmount with the compiler supplied on some
-recent distributions (eg. Debian 2.0 & RedHat 5.1).
-It can be made to build by adding the following line to the top of the
-Imakefile, before executing xmkmf:
+Thanks to the following people (and others):
 
-CC = c++
-
-I am not sure of the effect this has on memory usage, etc.
-
-
-RELEASE HISTORY:
-================
-
-Release 0.1    25/01/98    Does not update shape transparency properly under
-                              WindowMaker. This is a fault with WindowMaker.
-
-Release 0.2    31/01/98    Now free's ALL pixmaps on exit (I think).
-
-Release 0.3    04/02/98    Free's GC's too now.
-                           Displays % capacity on mounted devices.
-                           New set of icons (use a common palette of about 10 colors).
-                           New format for ~/.wmmount.
-
-Release 0.4    24/02/98    Fixed bug relating to manual window positioning.
-
-Release 0.5    04/03/98    Updates capacity display correctly.
-                              (thanks to aseltine@cs.umass.edu)
-                           Reduced CPU Load.
-                              (thanks to aseltine@cs.umass.edu)
-
-Release 0.6    12/03/98    New option in .wmmount makes 'showcapacity' specific to
-                              each mount.
-                              (thanks to steeve@minet.net)
-                           Now works on DEC Unix systems.
-                              (thanks to aseltine@cs.umass.edu)
-                           Now gives same capacity values as df.
-                              (thanks to steeve@minet.net)
-                           Now notices unmounts promptly (don't remove the floppy disk
-                              just coz wmmount says its unmounted already!).
-                           Now works on 8bpp displays with full colormaps.
-                              (thanks to devernay@istar.fr on the mailing-list)
-                           New fiend look.
-
-Release 0.7    25/04/98    Compiles again now.
-                           NFS and loopback mounts should work again now.
-                           Now GPL.
-                           Removed DEC Unix code.
-                              (sorry, aseltine@cs.umass.edu)
-                           Sensible CPU load.
-                           New FAQ.
-                           Yet another new face.
-                              (thanks to warp@xs4all.nl)
-                           Minor changes to ~/.wmmount.
-
-Release 0.8    07/05/98    Removed broken display code.
-                           Now looks for system.wmmount as a last resort.
-                              (thanks to ssadiqr@pheonix.Princeton.EDU)
-                           Added "-b back_color" command line argument.
-                           Should work on FreeBSD now.
-                              (thanks to dalroi@wit401310.student.utwente.nl)
-                           Fixed permissions problem with NFS mounts.
-                           Now uses execv(3) instead of system(3).
-
-Release 1.0    05/09/98    Improved error messaging.
-Beta1                      Fixed checkMount problem.
-                              (thanks to unit@lgcy.com and others)
-                           Less strict mountpoints, eg. "/mnt/dosc/" is now valid.
-                           Added "-a" command line argument for AfterStep users.
-                           Added "-position position" command line argument.
-                           Command line arguments, "-a", "-w" and "-s" are now toggle,
-                              so if you enable one at compile-time, you can override it
-                              at run-time.
-                           Added awk program for automatic generation of system.wmmount.
-                              (thanks to rolfwr@ii.uib.no)
-                           Added more options for device usage display.
-                           Executes open command from the mount point directory (useful
-                              for xterms, filemanagers, etc.).
+   aseltine@cs.umass.edu
+   steeve@minet.net
+   devernay@istar.fr
+   warp@xs4all.nl
+   ssadiqr@pheonix.Princeton.EDU
+   dalroi@wit401310.student.utwente.nl
+   unit@lgcy.com
+   rolfwr@ii.uib.no
 
 
-KNOWN BUGS:
-===========
+CHANGES:
+========
 
-Does not read symlinks properly when testing for mounted filesystems.
-So, if it incorrectly reports devices as mounted, make sure the mountpoint
-specified in the config file does not include symlinks.
+Release 0.1         25/01/98   First release.
+
+Release 0.2         31/01/98
+
+Release 0.3         04/02/98
+
+Release 0.4         24/02/98
+
+Release 0.5         04/03/98
+
+Release 0.6         12/03/98
+
+Release 0.7         25/04/98
+
+Release 0.8         07/05/98
+
+Release 1.0 beta1   05/09/98
+
+Release 1.0 beta2   17/06/99   Major rewrite including switch to plain C and a
+                                  separate dockapp source module.
