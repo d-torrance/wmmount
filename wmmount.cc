@@ -20,7 +20,7 @@
 #define CLASS       "WMMount"
 
 // User defines - custom
-#define SYSRCFILE   "/usr/X11R6/lib/X11/wmmount/system.wmmount"
+#define SYSRCFILE   "/etc/system.wmmount"
 #define MOUNTCMD    "mount %s &"
 #define UMOUNTCMD   "umount %s &"
 #define OPENCMD     "xterm -e mc %s &"

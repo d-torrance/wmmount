@@ -1,0 +1,23 @@
+.\"             -*-Nroff-*-
+.\"
+.TH update-wmmountrc 1 "Oct 1998" "Debian Project" "Debian GNU/Linux"
+.SH NAME
+update-wmmountrc \- build a wmmountrc file out of /etc/fstab
+.SH SYNOPSIS
+\fBupdate-wmmountrc > \fIwmmountrc-file\fB\fP
+.SH DESCRIPTION
+\fBupdate-wmmountrc\fP reads \fI/etc/fstab\fP and outputs a file that
+can be read by \fBwmmount(1x)\fP
+.SH AUTHORS
+\fBupdate-wmmountrc\fP was written by \fIMarcelo Magallon
+<mmagallo@debian.org>\fP based on a similar program distributed with
+wmmount by \fISam Hawker <shakie@geocities.com>\fP.
+
+This manpange was written by \fIMarcelo Magallon
+<mmagallo@debian.org>\fP
+.SH COPYRIGHT
+\fBupdate-wmmountrc\fP and this manpage are GNU Copyright 1998 Marcelo
+Magallon \fI<mmagallo@debian.org>\fP.
+.SH "SEE ALSO"
+.BR wmmount (1x),
+.BR fstab (5)

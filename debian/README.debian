@@ -1,0 +1,7 @@
+wmmount for DEBIAN
+------------------
+
+This is Debian GNU/Linux's prepackaged version of wmmount, a mount and
+monitoring miniapp designed with NeXTStep/OpenStep in mind.
+
+Marcelo E. Magallon <mmagallo@debian.org>, Sun,  8 Apr 1998 21:35:34 -0600

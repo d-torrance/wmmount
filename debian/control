@@ -1,0 +1,18 @@
+Source: wmmount
+Section: utils
+Priority: optional
+Maintainer: Marcelo E. Magallon <mmagallo@debian.org>
+Standards-Version: 2.4.1
+
+Package: wmmount
+Architecture: any
+Section: utils
+Priority: optional
+Depends: ${shlibs:Depends}
+Suggests: wmaker | afterstep
+Description: a mount utility and free space monitoring tool
+ There's nothing in the program that makes it *requiere* WindowMaker,
+ except maybe the look. It's very customizable and runs on a 64x64
+ window. You can use this to mount and unmount floppies, cd's, zip
+ drives, and file systems in general. It also displays the amount of
+ free space on the file system.

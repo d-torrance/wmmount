@@ -1,0 +1,60 @@
+wmmount (1.0beta1-1) unstable; urgency=low
+
+  * New upstream version
+  * debian/wmmount.1x: Updated switches and syntax
+  * Configuration files reverted to 0.8's names
+  * debian/wmmount.postinst: Modified to notify about configuration
+    filename change
+  * debian/control: Modified "Suggests" to "wmaker | afterstep"; updated
+    Standards Version
+  * debian/rules: added CC=c++ after $(MAKE)
+
+ -- Marcelo E. Magallon <mmagallo@debian.org>  Sun,  4 Oct 1998 21:25:23 -0600
+
+wmmount (0.8.3.unoff-1) unstable; urgency=low
+
+  * New release by Steve Borho
+  * Added preinst script to handle system wide config filename change
+  * Modified postinst to notify of filename change
+  * Added "ignore" to the man page
+
+ -- Marcelo E. Magallon <mmagallo@debian.org>  Sun, 20 Sep 1998 12:01:57 -0600
+
+wmmount (0.8.1.unoff-1) unstable; urgency=low
+
+  * New upstream version by new author (Steve Borho <borho@stlnet.com>),
+    ergo the "unoff" part.
+  * Modified wmmount.c to move system wide file to /etc
+
+ -- Marcelo E. Magallon <mmagallo@debian.org>  Sun,  6 Sep 1998 15:56:53 -0600
+
+wmmount (0.8-1) unstable; urgency=low
+
+  * New upstream version
+  * Patched to let it properly determine mounted/unmounted filesystems
+    (sent upstream)
+  * Updated manpage
+
+ -- Marcelo E. Magallon <mmagallo@debian.org>  Sat,  9 May 1998 21:52:45 -0600
+
+wmmount (0.7-1) unstable; urgency=low
+
+  * New upstream version
+  * It's GPL'ed now, moving into main!
+  * Applied patch that handles Expose events
+
+ -- Marcelo E. Magallon <mmagallo@debian.org>  Sat,  2 May 1998 10:20:18 -0600
+
+wmmount (0.6-1) unstable; urgency=low
+
+  * Initial release
+  * Modified Imakefile to include CC = c++, otherwise, it won't build.
+
+ -- Marcelo E. Magallon <mmagallo@debian.org>  Wed,  8 Apr 1998 18:55:39 -0600
+
+
+Local variables:
+mode: debian-changelog
+mode: auto-fill
+add-log-mailing-address: "mmagallo@debian.org"
+End:

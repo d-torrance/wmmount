@@ -1,0 +1,159 @@
+.\"             -*-Nroff-*-
+.\"
+.TH wmmount 1x "Sep 1998" "Debian Project" "Debian GNU/Linux"
+.SH NAME
+wmmount \- the WindowMaker universal mount point
+.SH SYNOPSIS
+.B wmmount
+.RB [\| \-h \||\| \-help \||\| \-\-help \|]
+.RB [\| \-s \|]
+.RB [\| \-w \|]
+.RB [\| \-a \|]
+.RB [\| \-display
+.RI \| display \|]
+.RB [\| \-position
+.RI \| position \|]
+.RB [\| \-b
+.RI \| "back color" \|]
+.SH DESCRIPTION
+\fBwmmount\fP mounts and umounts filesystems using a simple interface
+on a 64x64 miniwindow and a configuration file. It can also launch
+commands on the mount points, for example Midnight Commander,
+\fBmc\fP(1)
+.PP
+.B wmmount 
+is configured using a configuration file, ~/.wmmount (or
+/etc/system.wmmountrc). Its format is documented on the
+"\fIConfiguration\fP" section.
+.PP
+To mount a file system, click the left most button on the bottom
+strip. To move between mounts, click the right arrow button (goes
+"forward") and left arrow button (goes "back"). To launch the
+configured command, click the icon you defined.
+.SS OPTIONS
+.TP
+.B \-h \-help \-\-help
+displays a brief help message
+.TP
+.B \-s
+start up without groundplate
+.TP
+.B \-w
+start up withdrawn (for WindowMaker)
+.TP
+.B \-a
+use an smaller window (for AfterStep's Wharf)
+.TP
+.B \-display
+selects target display
+.TP
+.B \-position
+specifies the start up position in +x+y format
+.TP
+.B \-b
+specifies the back color
+.SH CONFIGURATION
+The configuration file has a semi rigid format, and is case
+sensitive. A # starts a comment, and lines consisting entirely of
+whitespace are ignored. There are some key-value pairs that control
+the behaviour and appearance of \fBwmmount\fP, namely:
+.TP
+.B mountcmd=<command>
+specifies the command used to mount a file system. If ommited \fImount
+%s &\fP will be used.
+.TP
+.B umountcmd=<command>
+specifies the command used to unmount a file system. If ommited
+\fIumount %s &\fP will be used.
+.TP
+.B opencmd=<command>
+specifies the command to run when the mount icon is clicked. If
+ommited \fIxterm -e mc %s\fP will be used.
+.TP
+.B textcolor=<color>
+specifies the color used for the mount name text .If ommited, black is
+used.
+.TP
+.B textfont=<font>
+specifies the font used for the mount name text. This is an X Font
+specification. See xlsfonts(1x). If ommited, helvetica, bold, 11 pt is
+used.
+.TP
+.B capcolor=<color>
+specifies the color used for the capacity readout. If ommited, gray90
+is used.
+.TP
+.B capfont=<font>
+specifies the font used for the capacity readout. This is an X Font
+specification. See xlsfonts(1x). If ommited, helvetica, medium,
+oblique, 11 pt is used.
+.TP
+.B ledcolor=<color>
+specifies the color used for the led. If ommited, green is used.
+.PP
+As you may have guessed by now, \fI%s\fP on the commands, is
+substituted with the corresponding \fBmount point\fP. Icons are
+specified like this:
+.TP
+.B icon <icon file>
+.PP
+At least \fBone\fP icon has to be specified, there's a maximum of 20
+icons. The details of the mountpoint(s) are specified like this
+(ordering and indentation \fIis\fP important, there are \fIno\fP blank
+lines between keys):
+.PP
+\fBmountname \fP<\fImountname\fP>
+.br
+\~\~\~\fBmountpoint \fP<\fImountpoint\fP>
+.br
+\~\~\~\fBiconnumber \fP<\fInumber\fP>
+.br
+\~\~\~\fBusagedisplay \fP<\fIFree\fP|\fIUsed\fP|\fI%Capacity\fP|\fINone\fP>
+.TP
+.I mountname
+is the name displayed on for that particular mount.
+.TP
+.I mountpoint
+is the actual mountpoint. This value is substituted wherever %s
+appears on the commands described above.
+.TP
+.I number
+is the icon number used. The first icon is number 0, and the same icon
+can be used multiple times.
+.TP
+.I usagedisplay
+this key specifies that kind of capacity information will be
+displayed. Free and Used display the correspoding quantities in bytes
+(kB, MB or GB), while %Capacity shows the free percentaje. None
+displays nothing.
+.SH FILES
+.TP
+.I ~/.wmmount
+configuration file.
+.TP
+.I /etc/system.wmmount
+configuration file.
+.TP
+.I /etc/fstab(5)
+static information about the filesystems.
+.TP
+.I /usr/share/wmmount
+on Debian systems, contains several icons that can be used with wmmount.
+.PP
+A maximum of 20 mountnames can be specified.
+.SH BUGS
+Does not read symlinks properly when testing for mounted filesystems.
+So, if it incorrectly reports devices as mounted, make sure the mountpoint
+specified in the config file does not include symlinks.
+.SH AUTHORS
+\fBwmmount\fP was written by \fISam Hawker <shakie@geocities.com>\fP.
+
+This manpange was written by \fIMarcelo Magallon
+<mmagallo@debian.org>\fP for the \fIDebian Project\fP, and is GNU
+Copyright 1998 Marcelo Magallon.
+.SH "SEE ALSO"
+.BR df (1),
+.BR mount (1),
+.BR fstab (5),
+.BR nfs (5)
+.BR wmaker (1x)
