@@ -3,11 +3,26 @@ on Sun, 25 Jan 1998 11:00:00 -0600. Current maintainer is Josip Rodin
 <jrodin@jagor.srce.hr>.
 
 Original source can be found at:
-	http://www.geocities.com/SiliconValley/Vista/2471/window_maker.html
+	http://www.geocities.com/SiliconValley/Vista/2471/wmmount.html
 
-wmmount is written by Sam Hawker <shawkie@ultraviolet.org>. It is
-distributed under the terms of the GNU General Public License. You
-can find the full text it in /usr/share/common-licenses/GPL file.
+Copyright (C) 1999  Sam Hawker <shawkie@geocities.com>
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program; if not, write to the Free Software
+  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+On Debian systems, you can find the full text of the GNU GPL in
+`/usr/share/common-licenses/GPL' file.
 
 update-wmmountrc (and its manpage) was written by Marcelo Magallon
 <mmagallo@debian.org> based on a similar program distributed with

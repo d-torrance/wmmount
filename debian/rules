@@ -2,12 +2,18 @@
 # Derived from Marcelo's file, and dh_make's example.
 
 #export DH_VERBOSE=1
+tmp := $(CURDIR)/debian/tmp
+
+CFLAGS := -O2 -Wall -fno-strength-reduce
+ifneq "$(findstring debug,$(DEB_BUILD_OPTIONS))" ""
+CFLAGS += -g
+endif
 
 build: build-stamp
 build-stamp:
 	dh_testdir
 	xmkmf
-	$(MAKE) CDEBUGFLAGS="-g -O2 -Wall -fno-strength-reduce"
+	$(MAKE) CDEBUGFLAGS="$(CFLAGS)"
 	perl -pi -e 's:/usr/X11R6/lib/X11/:/usr/share/:g' \
           < config/system.wmmount.eg > sample.wmmount
 	touch $@
@@ -18,7 +24,7 @@ clean:
 	[ ! -f Makefile ] || $(MAKE) clean
 	dh_clean Makefile build-stamp sample.wmmount
 
-binary-indep: build
+binary-indep:
 # There are no architecture-independent files here.
 
 binary-arch: build
@@ -26,15 +32,18 @@ binary-arch: build
 	dh_testroot
 	dh_clean -k
 	dh_installdirs usr/bin usr/share/wmmount
-	$(MAKE) install install.man DESTDIR=`pwd`/debian/tmp
-	install -m 755 debian/gen-wmmountrc `pwd`/debian/tmp/usr/bin
-	cp -a lib/* `pwd`/debian/tmp/usr/share/wmmount
+	$(MAKE) install install.man \
+          DESTDIR=$(tmp) BINDIR=/usr/bin MANPATH=/usr/share/man
+	install -m 644 lib/* $(tmp)/usr/share/wmmount
+	install -m 755 debian/gen-wmmountrc $(tmp)/usr/bin
+	install -m 644 debian/gen-wmmountrc.1 $(tmp)/usr/share/man/man1
 	dh_installdocs README
 	dh_installchangelogs
 	dh_installexamples sample.wmmount config/system.wmmount.sh
-	dh_installmanpages
 	dh_installmenu
+ifeq "$(findstring nostrip,$(DEB_BUILD_OPTIONS))" ""
 	dh_strip
+endif
 	dh_compress
 	dh_fixperms
 	dh_installdeb

@@ -1,22 +1,23 @@
 .\" -*- nroff -*-
-.TH GEN-WMMOUNTRC 1 "October 1999" "Debian Project" "Debian GNU/Linux"
+.TH GEN-WMMOUNTRC 1 "January 2000" "Debian Project" "Debian GNU/Linux"
 .SH NAME
 gen-wmmountrc \- build a wmmountrc file out of /etc/fstab
 .SH SYNOPSIS
-\fBgen-wmmountrc > \fIwmmountrc-file\fB\fP
+.B gen-wmmountrc
+[> \fIwmmountrc-file\fP]
 .SH DESCRIPTION
-\fBgen-wmmountrc\fP reads \fI/etc/fstab\fP and outputs a file that
-can be read by \fBwmmount(1x)\fP
+.B gen-wmmountrc
+reads /etc/fstab file and outputs a file that can be read by
+.BR wmmount (1x).
+Usual location of wmmountrc file is /etc/system.wmmount.
 .SH AUTHORS
-\fBgen-wmmountrc\fP (first called update-wmmountrc) was written by
-\fIMarcelo Magallon <mmagallo@debian.org>\fP based on a similar program
-distributed with wmmount by \fISam Hawker <shakie@geocities.com>\fP.
+.B gen-wmmountrc
+(first called update-wmmountrc) was written by Marcelo Magallon
+<mmagallo@debian.org>, based on a similar program distributed with
+wmmount, by Sam Hawker <shawkie@geocities.com>.
 .sp
-This manual page was written by \fIMarcelo Magallon
-<mmagallo@debian.org>\fP
-.SH COPYRIGHT
-\fBgen-wmmountrc\fP and this manual page are GNU Copyright 1998 Marcelo
-Magallon \fI<mmagallo@debian.org>\fP.
+This manual page was written by Marcelo Magallon, and, along with
+the program, later updated by Josip Rodin.
 .SH "SEE ALSO"
 .BR wmmount (1x),
 .BR fstab (5).

@@ -153,7 +153,7 @@ new wmmount config file from your /etc/fstab file contents.
 .BR wmaker (1x).
 .SH AUTHORS
 .B wmmount
-was written by Sam Hawker <shakie@geocities.com>.
+was written by Sam Hawker <shawkie@geocities.com>.
 .sp
 This manual page was written by Marcelo Magallon <mmagallo@debian.org>,
 and is GNU Copyright 1998 Marcelo Magallon. Later updated by Josip Rodin.

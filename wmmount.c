@@ -462,7 +462,7 @@ int config_init() {
   f=fopen(filename, "r");
   free(filename);
   if(f==NULL) {
-    fprintf(stderr, "%s: User config file not found\n", dockapp_argv[0]);
+/*  fprintf(stderr, "%s: User config file not found\n", dockapp_argv[0]); */
     filename=SYSCONFIG;
     f=fopen(filename, "r");
     if(f==NULL) {

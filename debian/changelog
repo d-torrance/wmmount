@@ -1,3 +1,20 @@
+wmmount (1.0beta2-3) unstable; urgency=low
+
+  * Killed the `User config file not found' message to stderr, it's
+    pointless.
+  * Changed menu entry to be in Apps/System, although that's not quite
+    perfect either, but it closes: #59654.
+  * Small changes to the manual page.
+  * Policy 3.2.1 compliant:
+    + checks for DEB_BUILD_OPTIONS in debian/rules
+    + moved wmmount and its manual page out of /usr/X11R6 (I kept the .1x
+      suffix for the manual page although it's in /usr/share/man/man1, it
+      won't hurt anything)
+  * Updated Build-Depends:.
+  * Cleaned up copyright file.
+
+ -- Josip Rodin <jrodin@jagor.srce.hr>  Sat,  9 Sep 2000 22:54:11 +0200
+
 wmmount (1.0beta2-2) unstable; urgency=low
 
   * s/generate-wmmountrc/gen-wmmountrc/ in postinst. Closes: #51410.

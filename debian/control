@@ -2,8 +2,8 @@ Source: wmmount
 Section: utils
 Priority: optional
 Maintainer: Josip Rodin <jrodin@jagor.srce.hr>
-Build-Depends: libxpm4-dev
-Standards-Version: 3.1.1
+Build-Depends: debhelper, xlib6g-dev, libxpm4-dev
+Standards-Version: 3.2.1
 
 Package: wmmount
 Architecture: any
