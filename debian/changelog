@@ -1,3 +1,26 @@
+wmmount (1.0beta2-6) unstable; urgency=low
+
+  * New maintainer address.
+
+ -- Josip Rodin <joy-packages@debian.org>  Tue, 28 Jan 2003 15:26:11 +0100
+
+wmmount (1.0beta2-5) unstable; urgency=low
+
+  * Added build-depends on xutils for xmkmf, closes: #176541, #176547.
+
+ -- Josip Rodin <jrodin@jagor.srce.hr>  Thu, 16 Jan 2003 01:31:04 +0100
+
+wmmount (1.0beta2-4) unstable; urgency=low
+
+  * Winter cleaning. :)
+  * Fixed a spelling error in the description, closes: #125497.
+    Rewrote the description.
+  * Replaced Build-Depends: xlib6g-dev, libxpm4-dev with just xlibs-dev,
+    closes: #170134.
+    I guess this will screw me over when xlibs get split, but oh well.
+
+ -- Josip Rodin <jrodin@jagor.srce.hr>  Sat, 11 Jan 2003 15:29:12 +0100
+
 wmmount (1.0beta2-3) unstable; urgency=low
 
   * Killed the `User config file not found' message to stderr, it's
@@ -99,10 +122,3 @@ wmmount (0.6-1) unstable; urgency=low
   * Modified Imakefile to include CC = c++, otherwise, it won't build.
 
  -- Marcelo E. Magallon <mmagallo@debian.org>  Wed,  8 Apr 1998 18:55:39 -0600
-
-
-Local variables:
-mode: debian-changelog
-mode: auto-fill
-add-log-mailing-address: "mmagallo@debian.org"
-End:

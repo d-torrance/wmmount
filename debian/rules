@@ -2,11 +2,14 @@
 # Derived from Marcelo's file, and dh_make's example.
 
 #export DH_VERBOSE=1
-tmp := $(CURDIR)/debian/tmp
+export DH_COMPAT=4
+tmp := $(CURDIR)/debian/wmmount
 
-CFLAGS := -O2 -Wall -fno-strength-reduce
-ifneq "$(findstring debug,$(DEB_BUILD_OPTIONS))" ""
-CFLAGS += -g
+CFLAGS := -g -Wall -fno-strength-reduce
+ifeq "$(findstring noopt,$(DEB_BUILD_OPTIONS))" ""
+CFLAGS += -O2
+else
+CFLAGS += -O0
 endif
 
 build: build-stamp
