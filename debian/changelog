@@ -1,3 +1,10 @@
+wmmount (1.0beta2-6.1) unstable; urgency=low
+
+  * Non-maintainer upload to help xlibs-dev transition.
+  * debian/control: Updated to replace xlibs-dev build-dep. (Closes: #346968)
+
+ -- Marc 'HE' Brockschmidt <he@debian.org>  Fri, 20 Jan 2006 00:07:12 +0100
+
 wmmount (1.0beta2-6) unstable; urgency=low
 
   * New maintainer address.

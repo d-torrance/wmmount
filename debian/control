@@ -2,7 +2,7 @@ Source: wmmount
 Section: utils
 Priority: optional
 Maintainer: Josip Rodin <joy-packages@debian.org>
-Build-Depends: debhelper (>= 4), xlibs-dev, xutils
+Build-Depends: debhelper (>= 4), libx11-dev, libxext-dev, libxpm-dev, x-dev, xutils
 Standards-Version: 3.5.8
 
 Package: wmmount
