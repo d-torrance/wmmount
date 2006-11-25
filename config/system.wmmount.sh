@@ -24,7 +24,7 @@ echo "\
 # See the README file for a more complete notice.
 
 # This configuration file to be saved as
-# /etc/system.wmmount or as ~/.wmmount.
+# /usr/X11R6/lib/X11/wmmount/system.wmmount or as ~/.wmmount.
 
 # Commands must appear (without a '#') at the beginning of the line.
 
@@ -41,7 +41,7 @@ echo "\
 # Tell wmmount what to do when you double-click on the information box.
 # This entry may be ommitted.
 
-#opencmd=/usr/bin/X11/xterm -T '%n - %m' -e mc %m
+#opencmd=/usr/X11R6/bin/nxterm -T '%n - %m' -e mc %m
 #opencmd=kfmclient exec %m
 
 # Choose fonts for the information box.
@@ -55,10 +55,10 @@ echo "\
 # Ensure all icons exist and are accessible.
 # At least one icon must be specified.
 
-icon /usr/share/wmmount/cdrom.xpm
-icon /usr/share/wmmount/floppy.xpm
-icon /usr/share/wmmount/zip.xpm
-icon /usr/share/wmmount/harddisk.xpm
+icon /usr/X11R6/lib/X11/wmmount/cdrom.xpm
+icon /usr/X11R6/lib/X11/wmmount/floppy.xpm
+icon /usr/X11R6/lib/X11/wmmount/zip.xpm
+icon /usr/X11R6/lib/X11/wmmount/harddisk.xpm
 
 # Give details of all mountpoints.
 

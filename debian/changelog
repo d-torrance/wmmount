@@ -1,3 +1,24 @@
+wmmount (1.0beta2-7) unstable; urgency=medium
+
+  * Documented %% in the manual page, fully closes: #274875.
+  * Check if XLoadQueryFont() returned NULL and if so, die nicely,
+    rather than falling apart, closes: #392502.
+  * Use execvp() instead of execv() for the opencmd command,
+    thanks to Pierre Pronchery, closes: #300907.
+  * Dropped references to /usr/X11R6 in the example config file.
+  * Stopped shipping system.wmmount.sh in examples because we already have
+    gen-wmmountrc which does the same.
+  * Stopped shipping upstream README because it only has misleading info
+    and nothing useful to users that isn't in the manual page already.
+  * Replaced xterm with x-terminal-emulator in the default opencmd value
+    because we only use -e and -T anyway.
+  * Removed needless x-dev from build-depends.
+  * Updated copyright file (URL, dropped pointless FSF address which dates).
+  * Quoted the needs parameter in the menu file.
+  * Updated Standards-Version (to 3.7.2).
+
+ -- Josip Rodin <joy-packages@debian.org>  Sat, 25 Nov 2006 11:27:39 +0100
+
 wmmount (1.0beta2-6.1) unstable; urgency=low
 
   * Non-maintainer upload to help xlibs-dev transition.

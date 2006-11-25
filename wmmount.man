@@ -52,41 +52,44 @@ whitespace are ignored. There are some key-value pairs that control
 the behaviour and appearance of \fBwmmount\fP, namely:
 .TP
 .B mountcmd=<command>
-specifies the command used to mount a file system. If ommited \fImount
-%m &\fP will be used.
+specifies the command used to mount a file system. If omitted,
+\fImount %m &\fP will be used.
 .TP
 .B umountcmd=<command>
-specifies the command used to unmount a file system. If ommited
+specifies the command used to unmount a file system. If omitted,
 \fIumount %m &\fP will be used.
 .TP
 .B opencmd=<command>
 specifies the command to run when the mount icon is clicked. If
-ommited \fIxterm -e mc %m\fP will be used.
+omitted, \fIx-terminal-emulator -e mc %m\fP will be used.
 .TP
 .B namecolor=<color>
-specifies the color used for the mount name text. If ommited, black is
+specifies the color used for the mount name text. If omitted, black is
 used.
 .TP
 .B namefont=<font>
 specifies the font used for the mount name text. This is an X Font
-specification. See xlsfonts(1x). If ommited, helvetica, bold, 11 pt is
+specification. See xlsfonts(1x). If omitted, helvetica, bold, 11 pt is
 used.
 .TP
 .B usagecolor=<color>
-specifies the color used for the capacity readout. If ommited, gray90
+specifies the color used for the capacity readout. If omitted, gray90
 is used.
 .TP
 .B usagefont=<font>
 specifies the font used for the capacity readout. This is an X Font
-specification. See xlsfonts(1x). If ommited, helvetica, medium,
+specification. See xlsfonts(1x). If omitted, helvetica, medium,
 oblique, 11 pt is used.
 .TP
 .B ledcolor=<color>
-specifies the color used for the led. If ommited, green is used.
+specifies the color used for the led. If omitted, green is used.
 .PP
-As you may have guessed by now, \fI%m\fP on the commands, is
-substituted with the corresponding \fBmount point\fP. Icons are
-specified like this:
+As you may have guessed by now, the special string \fI%m\fP in command
+specification is substituted with the corresponding \fBmount point\fP.
+Likewise, \fI%n\fP will be replaced with the \fBname of the mountpoint\fP.
+The string \fI%%\fP will be replaced with '%'.
+.PP
+Icons are specified like this:
 .TP
 .B icon <icon file>
 .PP

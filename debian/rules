@@ -17,15 +17,13 @@ build-stamp:
 	dh_testdir
 	xmkmf
 	$(MAKE) CDEBUGFLAGS="$(CFLAGS)"
-	perl -pi -e 's:/usr/X11R6/lib/X11/:/usr/share/:g' \
-          < config/system.wmmount.eg > sample.wmmount
 	touch $@
 
 clean:
 	dh_testdir
 	dh_testroot
 	[ ! -f Makefile ] || $(MAKE) clean
-	dh_clean Makefile build-stamp sample.wmmount
+	dh_clean Makefile build-stamp
 
 binary-indep:
 # There are no architecture-independent files here.
@@ -40,9 +38,9 @@ binary-arch: build
 	install -m 644 lib/* $(tmp)/usr/share/wmmount
 	install -m 755 debian/gen-wmmountrc $(tmp)/usr/bin
 	install -m 644 debian/gen-wmmountrc.1 $(tmp)/usr/share/man/man1
-	dh_installdocs README
+	dh_installdocs
 	dh_installchangelogs
-	dh_installexamples sample.wmmount config/system.wmmount.sh
+	dh_installexamples config/system.wmmount.eg
 	dh_installmenu
 ifeq "$(findstring nostrip,$(DEB_BUILD_OPTIONS))" ""
 	dh_strip

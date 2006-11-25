@@ -21,7 +21,7 @@ print <<"EOHEAD";
 # Tell wmmount what to do when you double-click on the information box.
 # This entry may be ommitted.
 
-#opencmd=/usr/bin/X11/xterm -T '%n - %m' -e mc %m
+#opencmd=xterm -T '%n - %m' -e mc %m
 #opencmd=kfmclient exec %m
 
 # Choose fonts for the information box.

@@ -36,7 +36,7 @@
  */
 #define MOUNTCMD  "/bin/mount %m"
 #define UMOUNTCMD "/bin/umount %m"
-#define OPENCMD   "/usr/bin/X11/xterm -T '%n - %m' -e mc %m"
+#define OPENCMD   "/usr/bin/x-terminal-emulator -T '%n - %m' -e mc %m"
 #define NAMEFONT  "-*-helvetica-bold-r-*-*-10-*-*-*-*-*-*-*"
 #define USAGEFONT "-*-helvetica-medium-r-*-*-10-*-*-*-*-*-*-*"
 
@@ -601,6 +601,10 @@ void font_init() {
   if(font==NULL)
     font=NAMEFONT;
   xfs=XLoadQueryFont(dockapp_d, font);
+  if(xfs==NULL) {
+    fprintf(stderr, "wmmount: font %s not found\n", font);
+    exit(1);
+  }
 
   f_name=xfs->fid;
   namex=6-xfs->min_bounds.lbearing;
@@ -613,6 +617,10 @@ void font_init() {
   if(font==NULL)
     font=USAGEFONT;
   xfs=XLoadQueryFont(dockapp_d, USAGEFONT);
+  if(xfs==NULL) {
+    fprintf(stderr, "wmmount: font %s not found\n", font);
+    exit(1);
+  }
   
   f_usage=xfs->fid;
   usagex=6-xfs->min_bounds.lbearing;
@@ -863,7 +871,9 @@ void execcmd(char *cmd, char *path) {
   if(pid==0) {
     if(path!=NULL)
       chdir(path);
-    execv(argv[0], argv);
+    if(execvp(argv[0], argv) == -1) {
+      perror(argv[0]);
+    }
     free(argv);
     free(buf);
     exit(127);
