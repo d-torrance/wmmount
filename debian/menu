@@ -1,2 +1,2 @@
-?package(wmmount): needs="X11" title="wmmount" section="Apps/System" \
+?package(wmmount): needs="X11" title="wmmount" section="Applications/System/Monitoring" \
   command="wmmount -- -w -s"

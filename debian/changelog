@@ -1,3 +1,14 @@
+wmmount (1.0beta2-7.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Fix FTBFS by adding xutils-dev to Build-Depends (Closes: #485271), as
+    confirmed by Olly Betts. And remove xutils from there, as it is
+    obsolete.
+  * Set urgency to “medium” as the bug affects testing.
+  * Menu transition: “Apps/System” to “Applications/System/Monitoring”.
+
+ -- Cyril Brulebois <kibi@debian.org>  Sun, 19 Jul 2009 02:36:43 +0200
+
 wmmount (1.0beta2-7) unstable; urgency=medium
 
   * Documented %% in the manual page, fully closes: #274875.
