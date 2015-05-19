@@ -1,0 +1,7 @@
+DEPLIBS = $(DEPXLIB) 
+LOCAL_LIBRARIES = $(XPMLIB) $(XLIB)
+
+SRCS = wmmount.cc
+OBJS = wmmount.o
+
+ComplexProgramTarget(wmmount)
